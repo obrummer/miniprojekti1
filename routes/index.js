@@ -4,11 +4,11 @@ var router = express.Router();
 
 var shoppingArray = [];
 
-router.get('/tuotteet', function(req, res, next) {  // ostoslista löytyy osoitteesta localhost:3000/tuotteet, AF
+router.get('/ostoslista', function(req, res, next) {  // ostoslista löytyy osoitteesta localhost:3000/tuotteet, AF
   res.render('nayta', {title: 'Ostoslista', shoppingArray});
 })
 
-router.post('/tuotteet', function(req, res, next) {   
+router.post('/ostoslista', function(req, res, next) {   
   let newItem = req.body;
   newItem["id"] = shoppingArray.length + 1;
   shoppingArray.push(newItem);
