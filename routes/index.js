@@ -20,7 +20,7 @@ router.post('/tuotteet', function(req, res, next) {   //valmis ostoslista löyty
   let itemsJSON = JSON.stringify(shoppingArray);
   fs.writeFile('./views/files/shopping.json', itemsJSON, function(err) {  //funktioiden ja muuttujien nimiä muutettu, AF
     if (err) throw err;
-    console.log("Ostoslista tallennettu!");
+    console.log("Ostoslista tallennettu!");  
   });
   res.render('nayta', {title: 'Ostoslista', shoppingArray});
 })
