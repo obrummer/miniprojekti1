@@ -1,10 +1,11 @@
 extends layout
 
 block content
-    hr
+    br
     h1= title
+    br
     p Welcome #{nimi} to #{title}
-    hr
+    br
     form#lomakeid(method="post", action="/addperson")
         input#lomakenimi(type="text", placeholder="Nimi", name="name")
         br

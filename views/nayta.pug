@@ -1,15 +1,15 @@
 extends layout
 
 block content
-    hr
+    br
     h1= title
     p Welcome #{nimi} to #{title}
-    hr
+    br
     form#lomakeid(method="post", action="/addperson")
         input#lomakenimi(type="text", placeholder="Nimi", name="name")
         br
         button#lomakesubmit(type="submit") Luo
-    hr
+    br
     ul
         each a in peopleArray
             li #{a.name}
