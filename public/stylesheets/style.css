@@ -2,7 +2,7 @@ body {
   padding: 50px;
   margin: 50px 300px 50px 300px;
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: lightgray;
+  background-color: honeydew;
   text-align: center;
   border-style: solid;
   border-color: black;
@@ -30,7 +30,7 @@ input {
 
 button {
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: aquamarine;
+  background-color: lightgreen;
   width: 100px;
 }
 

@@ -3,7 +3,7 @@ extends layout
 block content
     br
     h1= title
-    p Lisää tuotteita #{title}an alla.
+    p Lisää tuotteita ostoslistaan alla.
     br
     form#lomakeid(method="post", action="/tuotteet")  
         input#lomakenimi(type="text", placeholder="Tuote", name="name")
