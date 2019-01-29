@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    hr
+    h1= title
+    p Welcome #{nimi} to #{title}
+    hr
+    form#lomakeid(method="post", action="/addperson")
+        input#lomakenimi(type="text", placeholder="Nimi", name="name")
+        br
+        button#lomakesubmit(type="submit") Luo
+    hr
+    ul
+        each a in peopleArray
+            li #{a.name}
+    include includes/foot.pug
