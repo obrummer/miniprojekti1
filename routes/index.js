@@ -2,37 +2,37 @@ var fs = require ('fs');
 var express = require('express');
 var router = express.Router();
 
-var peopleArray = [];
+var shoppingArray = [];
 
-/* GET home page. */
+/* GET home page. Kommentoitu pois, kun ei oleellinen, AF. 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
+});*/
+
+router.get('/lomake', function(req, res, next) {  
+  res.render('lomake', {title: "Ostoslista"});
 });
 
-router.get('/lomake', function(req, res, next) {
-  res.render('lomake', {title: "Lomakesivu", nimi: "Lassi Lomake"});
-});
-
-router.post('/addperson', function(req, res, next) {
-  let newPerson = req.body;
-  newPerson["id"] = peopleArray.length + 1;
-  peopleArray.push(newPerson);
-  let peopleJSON = JSON.stringify(peopleArray);
-  fs.writeFile('./views/files/shopping.json', peopleJSON, function(err) {
+router.post('/tuotteet', function(req, res, next) {   //valmis ostoslista löytyy osoitteesta localhost:3000/tuotteet, AF
+  let newItem = req.body;
+  newItem["id"] = shoppingArray.length + 1;
+  shoppingArray.push(newItem);
+  let itemsJSON = JSON.stringify(shoppingArray);
+  fs.writeFile('./views/files/shopping.json', itemsJSON, function(err) {  //funktioiden ja muuttujien nimiä muutettu, AF
     if (err) throw err;
-    console.log("shopping.json saved!");
+    console.log("Ostoslista tallennettu!");
   });
-  res.render('nayta', {title: 'Naytalomakesivu', nimi: 'Lassi Lomake', peopleArray});
+  res.render('nayta', {title: 'Ostoslista', shoppingArray});
 })
 
 fs.readFile('./views/files/shopping.json', function(err, data) {
   console.log("File reading...");
   console.log("data: " + data);
   if (data) {
-  peopleArray = JSON.parse(data);
-  console.log("File read! " + peopleArray);
+  shoppingArray = JSON.parse(data);
+  console.log("File read! " + shoppingArray);
   } else {
-    peopleArray = [];
+    shoppingArray = [];
     console.log("Tyhjä tiedosto");
   }
 });
