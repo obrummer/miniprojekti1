@@ -1,12 +1,20 @@
 extends layout
 
 block content
-    hr
+    br
     h1= title
+<<<<<<< HEAD
     p Lisää tuotteita #{title}an alta.
     hr
     form#lomakeid(method="post", action="/tuotteet")
         input#lomakenimi(type="text", placeholder="Tuote", name="name")
+=======
+    br
+    p Welcome #{nimi} to #{title}
+    br
+    form#lomakeid(method="post", action="/addperson")
+        input#lomakenimi(type="text", placeholder="Nimi", name="name")
+>>>>>>> 89751fcd021c6773a1f3e0cab135a163fd4a2d7a
         br
         button#lomakesubmit(type="submit") Lisää
     include includes/foot.pug

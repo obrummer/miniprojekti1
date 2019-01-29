@@ -1,8 +1,9 @@
 extends layout
 
 block content
-    hr
+    br
     h1= title
+<<<<<<< HEAD
     p Lisää tuotteita #{title}an alta.
     hr
     form#lomakeid(method="post", action="/tuotteet")  
@@ -10,6 +11,15 @@ block content
         br
         button#lomakesubmit(type="submit") Lisää
     hr
+=======
+    p Welcome #{nimi} to #{title}
+    br
+    form#lomakeid(method="post", action="/addperson")
+        input#lomakenimi(type="text", placeholder="Nimi", name="name")
+        br
+        button#lomakesubmit(type="submit") Luo
+    br
+>>>>>>> 89751fcd021c6773a1f3e0cab135a163fd4a2d7a
     ul
         each a in shoppingArray
             li #{a.name}
