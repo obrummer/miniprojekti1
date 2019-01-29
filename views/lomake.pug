@@ -3,7 +3,7 @@ extends layout
 block content
     hr
     h1= title
-    p Welcome #{nimi} to #{title}
+    p Tervetuloa #{title}an
     hr
     form#lomakeid(method="post", action="/addperson")
         input#lomakenimi(type="text", placeholder="Nimi", name="name")
