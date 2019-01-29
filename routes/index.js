@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });*/
 
-router.get('/lomake', function(req, res, next) {  //nimitykset muutettu, AF
+router.get('/lomake', function(req, res, next) {  
   res.render('lomake', {title: "Ostoslista"});
 });
 
