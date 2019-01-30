@@ -37,4 +37,22 @@ fs.readFile('./views/files/shopping.json', function(err, data) {
   }
 });
 
+/* DELETE shoppingitem */
+router.delete('/tuotteet/:id',function (req, res) {
+
+    console.dir(shoppingArray);
+   
+    for (var item in shoppingArray) {
+        if (shoppingArray[item].id == req.params.id) {
+            shoppingArray.splice(item, 1);
+            fs.writeFile('./views/files/shopping.json', JSON.stringify(shoppingArray), function(){
+              res.json(shoppingArray);
+            });
+            return;
+        }
+    }
+    res.json("{'msg': 'Error!'}");
+  
+});
+
 module.exports = router;
