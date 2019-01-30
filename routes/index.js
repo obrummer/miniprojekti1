@@ -20,6 +20,8 @@ router.post('/ostoslista', function(req, res, next) {
   res.render('nayta', {title: 'Ostoslista', shoppingArray});
 })
 
+
+
 fs.readFile('./views/files/shopping.json', function(err, data) {
   console.log("File reading...");
   console.log("data: " + data);
@@ -30,7 +32,32 @@ fs.readFile('./views/files/shopping.json', function(err, data) {
     shoppingArray = [];
     console.log("Tyhjä tiedosto");
   }
-});
+})
+
+router.route("/ostoslista/:id")
+.get(function(req, res){
+  for(let i of ostoslista) {
+    if(i.id == req.params.id) {
+      res.json(i);
+      return;
+    }
+  }
+  res.json({msg: "Ei löydy"})
+})
+
+.delete(function(req, res) {
+  for(var i of ostoslista) {
+    console.log(req.params.id);
+    console.log(item.id);
+    if(item.id == req.params.id) {
+      ostoslista.splice(item, 1);
+      res.json({msg: "Tuote poistettu"});
+      return;
+    }
+    res.json("{'msg': 'Error, ei ole tuotetta'}")
+  }
+})
+
 
 
 
