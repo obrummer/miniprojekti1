@@ -45,7 +45,7 @@ router.route("/ostoslista/:id")
   res.json({msg: "Ei löydy"})
 })
 
-.delete(function(req, res) {
+/*.delete(function(req, res) {
   for(var i of ostoslista) {
     console.log(req.params.id);
     console.log(item.id);
@@ -56,25 +56,25 @@ router.route("/ostoslista/:id")
     }
     res.json("{'msg': 'Error, ei ole tuotetta'}")
   }
-})
+})*/
 
 
 
 
-// router.delete('/ostoslista/:id',function (req, res) {
-//   fs.readFile('shopping.json',function(err, data){
-//     let ostosArray = JSON.parse(data);
-//     for (var item in ostosArray) {
-//         if (ostosArray[item].id == req.params.id) {
-//           ostosArray.splice(item, 1);
-//             fs.writeFile('shopping.json', JSON.stringify(ostosArray), function(){
-//               res.json(ostosArray);
-//             });
-//             return;
-//         }
-//     }
-//     res.json("{'msg': 'Error, no suchperson!'}");
-//   });
-// });
+ router.delete('/ostoslista/:id',function (req, res) {
+  fs.readFile('shopping.json',function(err, data){
+     let shoppingArray = JSON.parse(data);
+     for (var item in shoppingArray) {
+         if (shoppingArray[item].id == req.params.id) {
+           shoppingArray.splice(item, 1);
+             fs.writeFile('shopping.json', JSON.stringify(shoppingArray), function(){
+               res.json(shoppingArray);
+             });
+             return;
+         }
+     }
+     res.json("{'msg': 'Error, no suchperson!'}");
+   });
+ });
 
 module.exports = router;
