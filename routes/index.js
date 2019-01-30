@@ -61,4 +61,20 @@ router.route("/ostoslista/:id")
 
 
 
+// router.delete('/ostoslista/:id',function (req, res) {
+//   fs.readFile('shopping.json',function(err, data){
+//     let ostosArray = JSON.parse(data);
+//     for (var item in ostosArray) {
+//         if (ostosArray[item].id == req.params.id) {
+//           ostosArray.splice(item, 1);
+//             fs.writeFile('shopping.json', JSON.stringify(ostosArray), function(){
+//               res.json(ostosArray);
+//             });
+//             return;
+//         }
+//     }
+//     res.json("{'msg': 'Error, no suchperson!'}");
+//   });
+// });
+
 module.exports = router;
