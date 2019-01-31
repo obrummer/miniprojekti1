@@ -1,11 +1,8 @@
-/*$(document).on('click', function () {
-    var $id = $(this).attr('id').split('-')[1];
-    console.log($id);
-    deleteItem($id);
-});*/
+
+//Deletes items on list 
 
 $(function () {
-    $('ul li').click(function() {   // poistaa tuotteen html-listalta -LM
+    $('ul li').click(function() {   
     console.dir(this);
     deleteItem(this.id)
     $(this).remove();
@@ -20,6 +17,5 @@ function deleteItem(id){
         "method": "DELETE"
     }).done(function(response) {
         console.dir(response);
-       // location.reload();
     })
 }
