@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    br
+    h1= title
+    p Lisää tuotteita ostoslistaan.
+    br
+    form#lomakeid(method="post", action="/tuotteet")
+        input#lomakenimi(type="text", placeholder="Tuote", name="name")
+        br
+        br
+        button#lomakesubmit(type="submit") Lisää

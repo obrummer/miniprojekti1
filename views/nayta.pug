@@ -3,15 +3,28 @@ extends layout
 block content
     br
     h1= title
+<<<<<<< HEAD
     p Lisää tuotteita #{title}an alta.
     hr
     form#lomakeid(method="post", action="/ostoslista")  
+=======
+    p Lisää tuotteita ostoslistaan.
+    p Poista tuotteet hiirenklikkauksella.
+    br
+    form#lomakeid(method="post", action="/tuotteet")  
+>>>>>>> a061634b9809c4aba51fd72e1982d62961084f59
         input#lomakenimi(type="text", placeholder="Tuote", name="name")
         br
+        br
         button#lomakesubmit(type="submit") Lisää
-    hr
+    br
     ul
         each a in shoppingArray
+<<<<<<< HEAD
             li #{a.name}
     include includes/foot.pug
     script(src="/javascripts/delete.js")
+=======
+            li(id=a.id) #{a.name}        
+
+>>>>>>> a061634b9809c4aba51fd72e1982d62961084f59

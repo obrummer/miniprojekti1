@@ -32,6 +32,7 @@ fs.readFile('./views/files/shopping.json', function(err, data) {
   }
 });
 
+<<<<<<< HEAD
 
 
 // router.delete('/ostoslista/:id',function (req, res) {
@@ -49,5 +50,24 @@ fs.readFile('./views/files/shopping.json', function(err, data) {
 //     res.json("{'msg': 'Error, no suchperson!'}");
 //   });
 // });
+=======
+/* DELETE shoppingitem */
+router.delete('/tuotteet/:id',function (req, res) {
+
+    console.dir(shoppingArray);
+   
+    for (var item in shoppingArray) {
+        if (shoppingArray[item].id == req.params.id) {
+            shoppingArray.splice(item, 1);
+            fs.writeFile('./views/files/shopping.json', JSON.stringify(shoppingArray), function(){
+              res.json(shoppingArray);
+            });
+            return;
+        }
+    }
+    res.json("{'msg': 'Error!'}");
+  
+});
+>>>>>>> a061634b9809c4aba51fd72e1982d62961084f59
 
 module.exports = router;
